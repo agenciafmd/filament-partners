@@ -1,0 +1,31 @@
+{
+    "name": "agenciafmd/filament-partners",
+    "description": "Filament - Partners",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Irineu Junior",
+            "email": "irineu@fmd.ag",
+            "homepage": "https://fmd.ag/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "agenciafmd/filament-admix": "v1.x-dev|dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Agenciafmd\\Partners\\": "src/",
+            "Agenciafmd\\Partners\\Database\\Factories\\": "database/factories/",
+            "Agenciafmd\\Partners\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Agenciafmd\\Partners\\Providers\\PartnerServiceProvider"
+            ]
+        }
+    }
+}
