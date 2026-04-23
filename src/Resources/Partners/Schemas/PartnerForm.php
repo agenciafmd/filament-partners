@@ -47,13 +47,20 @@ final class PartnerForm
                         Textarea::make(name: 'description')
                             ->translateLabel()
                             ->required()
+                            ->visible(config('filament-partners.description.visible', false))
                             ->columnSpanFull(),
                         TextInput::make('url')
                             ->translateLabel()
                             ->url()
                             ->required()
+                            ->visible(config('filament-partners.url.visible', false))
                             ->columnSpanFull(),
-                        ImageUploadWithDefault::make(name: 'image', directory: 'partner/image'),
+                        ImageUploadWithDefault::make(name: 'image', directory: 'partner/image')
+                            ->afterLabel('Max. ' . config('filament-partners.image.width', 720) . 'x' . config('filament-partners.image.height', 540))
+                            ->imageEditorAspectRatioOptions(config('filament-partners.image.aspect_ratio_options', ['4:3']))
+                            ->imageEditorViewportWidth(config('filament-partners.image.width', 720))
+                            ->imageEditorViewportHeight(config('filament-partners.image.height', 540))
+                            ->visible(config('filament-partners.image.visible', false)),
                     ])
                     ->collapsible()
                     ->columns()

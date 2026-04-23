@@ -25,8 +25,6 @@ final class PartnerResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUsers;
 
-    protected static ?int $navigationSort = 9;
-
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function getModelLabel(): string
@@ -37,6 +35,16 @@ final class PartnerResource extends Resource
     public static function getPluralModelLabel(): string
     {
         return __('Partners');
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return config('filament-partners.navigation_sort');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return config('filament-partners.navigation_group');
     }
 
     public static function form(Schema $schema): Schema
