@@ -12,8 +12,6 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Get;
-use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 
 final class PartnerForm
@@ -29,18 +27,7 @@ final class PartnerForm
                                 ->schema([
                                     TextInput::make('name')
                                         ->translateLabel()
-                                        ->live(onBlur: true)
-                                        ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
-                                            if (($get('slug') ?? '') !== str($old)
-                                                    ->slug()
-                                                    ->toString()) {
-                                                return;
-                                            }
-
-                                            $set('slug', str($state)
-                                                ->slug()
-                                                ->toString());
-                                        })
+                                        ->generateSlug()
                                         ->autofocus()
                                         ->minLength(3)
                                         ->maxLength(255)
