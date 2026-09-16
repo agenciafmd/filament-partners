@@ -49,7 +49,7 @@ final class PartnerForm
                                         ->columnSpanFull(),
                                     ImageUploadWithDefault::make(name: 'image', directory: 'partner/image')
                                         ->afterLabel('Max. ' . config('filament-partners.image.width', 720) . 'x' . config('filament-partners.image.height', 540))
-                                        ->imageEditorAspectRatioOptions(config('filament-partners.image.aspect_ratio_options', ['4:3']))
+                                        ->imageEditorAspectRatioOptions(config('filament-partners.image.ratio', ['4:3']))
                                         ->imageEditorViewportWidth(config('filament-partners.image.width', 720))
                                         ->imageEditorViewportHeight(config('filament-partners.image.height', 540))
                                         ->visible(config('filament-partners.image.visible', false)),

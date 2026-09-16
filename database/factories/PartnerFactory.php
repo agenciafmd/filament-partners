@@ -19,7 +19,7 @@ final class PartnerFactory extends Factory
     {
         $name = fake()->sentence(4);
         $slug = str($name)->slug();
-        $ratio = collect(config('filament-partners.image.aspect_ratio_options', ['4:3']))
+        $ratio = collect(config('filament-partners.image.ratio', ['4:3']))
             ->map(fn (string $ratio) => str($ratio)->replace(':', 'x')->toString())
             ->implode('');
 
