@@ -8,6 +8,9 @@ use Agenciafmd\Partners\Models\Partner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * @extends Factory<Partner>
+ */
 final class PartnerFactory extends Factory
 {
     protected $model = Partner::class;
