@@ -16,8 +16,5 @@ return [
         'visible' => true,
         'width' => 720,
         'height' => 540,
-        'ratio' => [
-            '4:3',
-        ],
     ],
 ];

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Agenciafmd\Partners\Resources\Partners\Schemas;
 
-use Agenciafmd\Admix\Resources\Forms\Components\ImageUploadWithDefault;
+use Agenciafmd\Admix\Resources\Forms\Components\ImageUploadWithAutomaticallyResize;
 use Agenciafmd\Admix\Resources\Infolists\Components\DateTimeEntry;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -47,11 +47,12 @@ final class PartnerForm
                                         ->required()
                                         ->visible(config('filament-partners.url.visible', false))
                                         ->columnSpanFull(),
-                                    ImageUploadWithDefault::make(name: 'image', directory: 'partner/image')
-                                        ->afterLabel('Max. ' . config('filament-partners.image.width', 720) . 'x' . config('filament-partners.image.height', 540))
-                                        ->imageEditorAspectRatioOptions(config('filament-partners.image.ratio', ['4:3']))
-                                        ->imageEditorViewportWidth(config('filament-partners.image.width', 720))
-                                        ->imageEditorViewportHeight(config('filament-partners.image.height', 540))
+                                    ImageUploadWithAutomaticallyResize::make(
+                                        name: 'image',
+                                        directory: 'partner/image',
+                                        width: (string) config('filament-partners.image.width', 720),
+                                        height: (string) config('filament-partners.image.height', 540),
+                                    )
                                         ->visible(config('filament-partners.image.visible', false)),
                                 ])
                                 ->collapsible()
