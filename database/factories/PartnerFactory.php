@@ -19,9 +19,6 @@ final class PartnerFactory extends Factory
     {
         $name = fake()->sentence(4);
         $slug = str($name)->slug();
-        $ratio = collect(config('filament-partners.image.ratio', ['4:3']))
-            ->map(fn (string $ratio) => str($ratio)->replace(':', 'x')->toString())
-            ->implode('');
 
         return [
             'is_active' => fake()->boolean(),
@@ -29,7 +26,7 @@ final class PartnerFactory extends Factory
             'name' => $name,
             'description' => fake()->text(maxNbChars: 50),
             'url' => fake()->url(),
-            'image' => Storage::putFile('fake', fake()->localImage(ratio: $ratio)),
+            'image' => Storage::putFile('fake', fake()->localImage(ratio: '4:3')),
             'slug' => $slug,
         ];
     }
