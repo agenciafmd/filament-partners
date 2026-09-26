@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Agenciafmd\Partners\Database\Seeders;
 
+use Agenciafmd\Partners\Database\Factories\PartnerFactory;
 use Agenciafmd\Partners\Models\Partner;
 use Illuminate\Database\Seeder;
 
@@ -14,7 +15,7 @@ final class PartnerSeeder extends Seeder
         Partner::query()
             ->truncate();
 
-        Partner::factory()
+        PartnerFactory::new()
             ->count(50)
             ->create();
     }

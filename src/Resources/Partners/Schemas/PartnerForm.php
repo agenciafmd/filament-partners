@@ -39,21 +39,21 @@ final class PartnerForm
                                     Textarea::make(name: 'description')
                                         ->translateLabel()
                                         ->required()
-                                        ->visible(config('filament-partners.description.visible', false))
+                                        ->visible(config()->boolean('filament-partners.description.visible', false))
                                         ->columnSpanFull(),
                                     TextInput::make('url')
                                         ->translateLabel()
                                         ->url()
                                         ->required()
-                                        ->visible(config('filament-partners.url.visible', false))
+                                        ->visible(config()->boolean('filament-partners.url.visible', false))
                                         ->columnSpanFull(),
                                     ImageUploadWithAutomaticallyResize::make(
                                         name: 'image',
                                         directory: 'partner/image',
-                                        width: (string) config('filament-partners.image.width', 720),
-                                        height: (string) config('filament-partners.image.height', 540),
+                                        width: (string) config()->integer('filament-partners.image.width', 720),
+                                        height: (string) config()->integer('filament-partners.image.height', 540),
                                     )
-                                        ->visible(config('filament-partners.image.visible', false)),
+                                        ->visible(config()->boolean('filament-partners.image.visible', false)),
                                 ])
                                 ->collapsible()
                                 ->columns()

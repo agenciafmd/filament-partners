@@ -39,12 +39,16 @@ final class PartnerResource extends Resource
 
     public static function getNavigationSort(): ?int
     {
-        return config('filament-partners.navigation_sort');
+        $navigationSort = config('filament-partners.navigation_sort');
+
+        return is_int($navigationSort) ? $navigationSort : null;
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return config('filament-partners.navigation_group');
+        $navigationGroup = config('filament-partners.navigation_group');
+
+        return is_string($navigationGroup) ? $navigationGroup : null;
     }
 
     public static function form(Schema $schema): Schema
