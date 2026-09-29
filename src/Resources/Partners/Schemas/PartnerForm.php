@@ -50,8 +50,8 @@ final class PartnerForm
                                     ImageUploadWithAutomaticallyResize::make(
                                         name: 'image',
                                         directory: 'partner/image',
-                                        width: (string) config()->integer('filament-partners.image.width', 720),
-                                        height: (string) config()->integer('filament-partners.image.height', 540),
+                                        width: config()->integer('filament-partners.image.width', 720),
+                                        height: config()->integer('filament-partners.image.height', 540),
                                     )
                                         ->visible(config()->boolean('filament-partners.image.visible', false)),
                                 ])
