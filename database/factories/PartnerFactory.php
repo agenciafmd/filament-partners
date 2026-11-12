@@ -7,12 +7,14 @@ namespace Agenciafmd\Partners\Database\Factories;
 use Agenciafmd\Partners\Models\Partner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Storage;
+use Override;
 
 /**
  * @extends Factory<Partner>
  */
 final class PartnerFactory extends Factory
 {
+    #[Override]
     protected $model = Partner::class;
 
     public function definition(): array
